@@ -1,0 +1,366 @@
+@plugin "@tailwindcss/typography";
+
+.article-shell {
+  width: 100%;
+  max-width: 68rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3vw, 3rem) var(--page-gutter) 4rem;
+}
+
+.article-shell.home-page {
+  max-width: 78rem;
+  padding-top: clamp(1rem, 2vw, 1.75rem);
+}
+
+.md.article-shell {
+  max-width: 68rem;
+}
+
+.md.article-shell.home-page {
+  max-width: 78rem;
+}
+
+.error-page {
+  --pixel-frame-color: var(--border-strong);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  border: 1px solid transparent;
+  background: var(--surface);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-shadow: var(--pixel-shadow);
+  clip-path: var(--pixel-corners);
+}
+
+.error-page .discord-callout {
+  margin-top: 1.5rem;
+}
+
+.md {
+  @apply prose max-w-none;
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-lead: var(--text-secondary);
+  --tw-prose-links: var(--link);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-counters: var(--text-muted);
+  --tw-prose-bullets: var(--list-marker);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--text-secondary);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-captions: var(--text-muted);
+  --tw-prose-code: var(--inline-code);
+  --tw-prose-pre-code: var(--text-primary);
+  --tw-prose-pre-bg: var(--code-bg);
+  --tw-prose-th-borders: var(--border-strong);
+  --tw-prose-td-borders: var(--border);
+  color: var(--text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.72;
+}
+
+.md :where(h1, h2, h3, h4):not(:where(.not-prose *)) {
+  color: var(--text-primary);
+  font-weight: 660;
+  letter-spacing: var(--heading-letter-spacing);
+  text-wrap: balance;
+}
+
+.md :where(h5, h6):not(:where(.not-prose *)) {
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+.md :where(h1):not(:where(.not-prose *)) {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 5vw, 3.35rem);
+  line-height: 1.06;
+}
+
+.md :where(h2):not(:where(.not-prose *)) {
+  margin: 3.25rem 0 0.9rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+  line-height: 1.18;
+  scroll-margin-top: 5.5rem;
+}
+
+.md :where(h3):not(:where(.not-prose *)) {
+  margin: 2.35rem 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  scroll-margin-top: 5.5rem;
+}
+
+.md :where(h4):not(:where(.not-prose *)) {
+  margin-top: 1.8rem;
+  font-size: 1.08rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.md :where(p):not(:where(.not-prose *)) {
+  margin-block: 0.85rem;
+}
+
+.md :where(a):not(:where(.not-prose *)) {
+  color: var(--link);
+  font-weight: 500;
+  text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
+}
+
+.md :where(a):not(:where(.not-prose *)):hover {
+  color: var(--link-hover);
+  text-decoration-color: currentColor;
+}
+
+.md :where(strong):not(:where(.not-prose *)) {
+  color: var(--text-primary);
+  font-weight: 650;
+}
+
+.md :where(ul, ol):not(:where(.not-prose *)) {
+  margin-block: 0.75rem 1rem;
+  padding-left: 1.45rem;
+}
+
+.md :where(li):not(:where(.not-prose *)) {
+  margin-block: 0.25rem;
+  padding-left: 0.2rem;
+}
+
+.md :where(li)::marker {
+  color: var(--list-marker);
+}
+
+.md :where(blockquote):not(:where(.not-prose *)) {
+  position: relative;
+  margin-block: 1.5rem;
+  border-left: 0;
+  border-radius: 0 0.65rem 0.65rem 0;
+  background: var(--accent-soft);
+  padding: 0.85rem 1rem;
+  color: var(--text-secondary);
+  font-style: normal;
+  font-weight: 400;
+  clip-path: var(--pixel-corners);
+}
+
+.md :where(blockquote):not(:where(.not-prose *))::before {
+  position: absolute;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  left: 0;
+  width: 3px;
+  background: var(--accent);
+  content: "";
+}
+
+.md :where(hr):not(:where(.not-prose *)) {
+  margin-block: 2.5rem;
+  border-color: var(--border);
+}
+
+.md :where(:not(pre) > code):not(:where(.not-prose *)) {
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 0.35rem;
+  background: var(--inline-code-bg);
+  padding: 0.12em 0.35em;
+  color: var(--inline-code);
+  font-size: 0.87em;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.md :where(:not(pre) > code):not(:where(.not-prose *))::before,
+.md :where(:not(pre) > code):not(:where(.not-prose *))::after {
+  content: none;
+}
+
+.md :where(pre):not(:where(.not-prose *)) {
+  margin-block: 1.25rem;
+  overflow-x: auto;
+  border: 1px solid var(--code-border);
+  border-radius: 0;
+  background: var(--code-bg) !important;
+  box-shadow: var(--floating-shadow);
+}
+
+.error-page::after,
+.version-callout::after,
+.discord-callout::after {
+  position: absolute;
+  inset: 0;
+  background: var(--pixel-frame-outline);
+  color: var(--pixel-frame-color, var(--border));
+  content: "";
+  pointer-events: none;
+}
+
+.md :where(pre code):not(:where(.not-prose *)) {
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  font-size: 0.9rem;
+}
+
+.remark-code-title {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.4rem 0 0;
+  border: 1px solid var(--code-border);
+  border-radius: 0;
+  background: var(--code-title-bg);
+  padding: 0.55rem 0.9rem;
+  color: var(--code-ui-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.md .remark-code-title + :where(pre):not(:where(.not-prose *)) {
+  margin-top: 0;
+  border-top: 0;
+  border-radius: 0;
+}
+
+.md :where(th):not(:where(.not-prose *)) {
+  background: var(--surface);
+  padding: 0.7rem 0.85rem;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.md :where(td):not(:where(.not-prose *)) {
+  padding: 0.7rem 0.85rem;
+}
+
+.md :where(tbody tr):not(:where(.not-prose *)):nth-child(even) {
+  background: var(--table-stripe);
+}
+
+.md :where(h1, h2, h3, h4) > a[title="Copy Link"] {
+  display: inline-flex;
+  margin-left: 0.45rem;
+  color: var(--copy-link);
+  opacity: 0;
+  translate: 0 0.1em;
+  transition:
+    color 140ms ease,
+    opacity 140ms ease;
+}
+
+.md :where(h1, h2, h3, h4):hover > a[title="Copy Link"],
+.md :where(h1, h2, h3, h4) > a[title="Copy Link"]:focus-visible {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+.md :where(h1, h2, h3, h4) > a[title="Copy Link"] svg {
+  width: 0.9em;
+  height: 0.9em;
+  stroke: currentColor;
+}
+
+.version-callout {
+  --pixel-frame-color: var(--border);
+  position: relative;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-bottom: 1.35rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: var(--surface);
+  padding: 0.55rem 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  clip-path: var(--pixel-corners);
+}
+
+.version-callout--current svg {
+  color: var(--success);
+}
+
+.version-callout--outdated svg {
+  color: var(--warning);
+}
+
+.version-callout svg {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  margin-top: 0.08rem;
+}
+
+.discord-callout {
+  --pixel-frame-color: var(--border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      color-mix(in srgb, var(--accent) 10%, transparent) 0,
+      color-mix(in srgb, var(--accent) 4%, transparent) 9rem,
+      transparent 18rem
+    ),
+    var(--surface);
+  padding: 1rem;
+  clip-path: var(--pixel-corners);
+}
+
+.discord-callout__logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: none;
+}
+
+.discord-callout__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.discord-callout p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.discord-callout a {
+  color: var(--link);
+}
+
+@media (max-width: 640px) {
+  .md {
+    font-size: 1rem;
+  }
+
+  .discord-callout__logo {
+    display: none;
+  }
+}
